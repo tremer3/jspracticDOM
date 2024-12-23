@@ -62,6 +62,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 newFilm = `${newFilm.substring(0, 22)}...`;
             }
 
+            if (favorite) {
+                console.log("Добавляем любимый фильм");
+            }
+
             movieDB.movies.push(newFilm);
             sortArr(movieDB.movies);
 
@@ -91,6 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function createMovieList(films, parent) {
         parent.innerHTML = "";
+        sortArr(films);
     
         films.forEach((film, i) => {
             parent.innerHTML += `
@@ -111,6 +116,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     deleteAdv(adv);
     makeChanges();
-    sortArr(movieDB.movies);
     createMovieList(movieDB.movies, movieList);
 });
